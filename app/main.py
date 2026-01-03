@@ -22,9 +22,16 @@ state = {
 
 FAILOVER_THRESHOLD = 60.0
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 @app.get("/")
 async def get_index():
-    return FileResponse("static/index.html")
+    index_path = os.path.join(BASE_DIR, "static", "index.html")
+    return FileResponse(index_path)
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "active_provider": state["active_provider"]}
 
 @app.get("/api/dashboard", response_model=DashboardState)
 async def get_dashboard():
