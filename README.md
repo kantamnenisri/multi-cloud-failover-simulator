@@ -42,3 +42,9 @@ Health Score (0-100) = `(1.0 - error_rate/100) * 40 + (1.0 - latency/1000) * 30 
 
 ## Simulation
 Use the dashboard to manually update metrics for any provider. To trigger a failover, set high latency (e.g., 800ms) or high error rate (e.g., 20%) for the currently active provider.
+
+
+## 💡 Inspiration
+This project is a reference implementation exploring concepts related to 
+multi-cloud reliability engineering. The author holds USPTO patent 
+applications in this domain (US 19/325,718 and US 19/344,864).
