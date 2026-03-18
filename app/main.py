@@ -33,6 +33,10 @@ async def get_index():
 async def health_check():
     return {"status": "healthy", "active_provider": state["active_provider"]}
 
+@app.get("/ping")
+async def ping():
+    return "OK"
+
 @app.get("/api/dashboard", response_model=DashboardState)
 async def get_dashboard():
     return DashboardState(
